@@ -5,13 +5,14 @@ from setuptools import setup, find_packages
 
 setup(
     name='febs',
-    version='0.0.1',
+    version='0.0.2',
     description=(
         'febs is a useful utilities set'
     ),
     long_description=open('README.rst').read(),
     author='brainpoint',
     author_email='bpoint.lee@gmail.com',
+    license='MIT License',
     packages=find_packages(),
     platforms=["all"],
     url='https://github.com/brainpoint/febs-python#readme',
