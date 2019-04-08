@@ -48,20 +48,22 @@ class file:
       if not isinstance(dir, str) or dir == '':
           return True
 
-      dir = dir.replace(sepr, os.path.sep)
-      dir = os.path.realpath(dir)
       if file.dirIsExist(dir):
           return True
+
+      dir = dir.replace(sepr, os.path.sep)
+      dir = os.path.realpath(dir)
 
       ldir = len(dir)
       if dir[ldir-1] != os.sep:
           dir += os.sep
+          ldir += 1
 
       j = 0
       paths = []
       for i in range(ldir):
           if dir[i] == os.sep and i != 0:
-              paths.append(dir[j, i])
+              paths.append(dir[j:i])
               j = i+1
 
       dir = ''

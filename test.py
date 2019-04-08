@@ -9,16 +9,21 @@
 
 import os
 import unittest
-import febs
+
+from febs import file
 
 class TestFile(unittest.TestCase):
     def test_dirIsExist(self):
-        self.assertEqual(True, febs.file.dirIsExist('./build'))
-        self.assertEqual(True, febs.file.dirIsExist('./build/lib'))
-        self.assertNotEqual(True, febs.file.dirIsExist('./xxxx'))
+        self.assertEqual(True, file.dirIsExist('./build'))
+        self.assertEqual(True, file.dirIsExist('./build/lib'))
+        self.assertNotEqual(True, file.dirIsExist('./xxxx'))
 
-    def test_dirExplorerFilesRecursive(self):
-        print(febs.file.dirExplorerDirsRecursive('.'))
+    # def test_dirExplorerFilesRecursive(self):
+    #     print(file.dirExplorerDirsRecursive('.'))
+
+    def test_dirAssure(self):
+        file.dirAssure('./build/build/build')
+        self.assertEqual(True, file.dirIsExist('./build/build/build'))
 
 if __name__ == '__main__':
     unittest.main()
